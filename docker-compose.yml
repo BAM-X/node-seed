@@ -1,0 +1,25 @@
+version: '2'
+services:
+  app:
+    image: bamx/node-seed
+    build: .
+    environment:
+      - LANG=en_US.UTF-8
+      - APP_ENV=local
+      - NODEPATH=/root/app
+      - DEBUG=app:*
+    volumes:
+      - ./app:/root/app
+    ports:
+      - '5000:5000'
+  test:
+    image: bamx/flask-seed
+    build: .
+    environment:
+      - LANG=en_US.UTF-8
+      - APP_ENV=test
+      - NODEPATH=/root/app
+      - DEBUG=app:*
+    command: test/runner.js
+    volumes:
+      - ./app:/root/app
