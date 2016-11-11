@@ -1,7 +1,14 @@
 'use strict';
 
-const sqlite = require('sqlite3');
+const bluebird = require('bluebird');
+const sqlite = require('sqlite');
 
 const config = require('./config');
 
-const db = new sqlite.DataBase(config.DATABASE_URI);
+sqlite.open(config.DATABASE_URI).then(() => {
+	return sqlite.migrate({force: 'last'});
+}).catch((err) => {
+	console.log(err.stack);
+});
+
+module.exports = sqlite;
