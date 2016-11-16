@@ -1,14 +1,14 @@
 'use strict';
 
-const bluebird = require('bluebird');
 const sqlite = require('sqlite');
 
-const config = require('./config');
+const configs = require('./config');
+const config = configs.getCurrentConfig();
 
-sqlite.open(config.DATABASE_URI).then(() => {
+let promise = sqlite.open(config.DATABASE_URI).then((db) => {
 	return sqlite.migrate({force: 'last'});
-}).catch((err) => {
+}, (err) => {
 	console.log(err.stack);
 });
 
-module.exports = sqlite;
+module.exports = promise;

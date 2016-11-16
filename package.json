@@ -17,7 +17,10 @@
     "sqlite": "^2.2.3"
   },
   "devDependencies": {
+    "debug": "^2.2.0",
+    "eslint": "^3.10.2",
     "jasmine": "^2.5.2",
-    "jasmine-spec-reporter": "^2.7.0"
+    "jasmine-spec-reporter": "^2.7.0",
+    "request": "^2.78.0"
   }
 }

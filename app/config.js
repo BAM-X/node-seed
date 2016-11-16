@@ -10,4 +10,12 @@ const local = {
 	DATABASE_URI: 'app.db'
 };
 
-module.exports = process.env.ENV === 'local' ? local : test;
+function getCurrentConfig() {
+	return process.env.APP_ENV === 'test' ? test : local;
+}
+
+module.exports = {
+	test: test,
+	local: local,
+	getCurrentConfig: getCurrentConfig
+};
