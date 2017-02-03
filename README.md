@@ -1,5 +1,5 @@
-# Flask-seed [![Build Status](https://travis-ci.org/BAM-X/node-seed.svg?branch=master)](https://travis-ci.org/BAM-X/node-seed)
-Seed for small flask apps developed with Docker and Docker-Compose
+# Node-seed [![Build Status](https://travis-ci.org/BAM-X/node-seed.svg?branch=master)](https://travis-ci.org/BAM-X/node-seed)
+Seed for small express apps developed with Docker and Docker-Compose
 
 ## Useful commands
 ``` bash
